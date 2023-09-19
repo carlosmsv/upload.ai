@@ -45,8 +45,8 @@ export function App() {
             Lembre-se: você pode usar a variável <code className="text-violet-400">{'{transcription}'}</code> no seu prompt para adicionar o conteúdo da transcrição do vídeo selecionado
           </p>
         </div>
-        <aside className="w-80 space-y-6">
-          <form className="space-y-6">
+        <aside className="w-80 space-y-4">
+          <form className="space-y-4">
             <label 
               htmlFor="video"
               className="border flex rounded-md aspect-video cursor-pointer border-dashed text-sm flex-col gap-2 items-center justify-center text-muted-foreground hover:bg-primary/5"
@@ -77,8 +77,24 @@ export function App() {
 
           <Separator />
 
-          <form className="space-y-6">
+          <form className="space-y-4">
+          <div className="space-y-2">
+              <Label>Prompt</Label>
+              <Select defaultValue="gpt3.5">
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecione um prompt..." />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="title">Título do YouTube</SelectItem>
+                  <SelectItem value="description">Descrição do YouTube</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <Separator />
+
             <div className="space-y-2">
+              <Label>Modelo</Label>
               <Select disabled defaultValue="gpt3.5">
                 <SelectTrigger>
                   <SelectValue />
@@ -87,7 +103,9 @@ export function App() {
                   <SelectItem value="gpt3.5">GPT 3.5-turbo 16k</SelectItem>
                 </SelectContent>
               </Select>
-              <span className="block text-xs text-muted-foreground italic">Você poderá customizar essa opção em breve</span>
+              <span className="block text-xs text-muted-foreground italic">
+                Você poderá customizar essa opção em breve
+              </span>
             </div>
 
             <Separator />
@@ -106,7 +124,7 @@ export function App() {
 
             <Separator />
 
-            <Button type="submit">
+            <Button type="submit" className="w-full">
               Executar
               <Wand2 className="w-4 h-4 ml-2" />
             </Button>
