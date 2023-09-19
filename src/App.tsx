@@ -2,6 +2,7 @@ import { Github, FileVideo } from "lucide-react"
 import { Button } from "./components/ui/button";
 import { Separator } from "./components/ui/separator";
 import { Textarea } from "./components/ui/textarea";
+import { Label } from "./components/ui/label";
 
 export function App() {
 
@@ -51,7 +52,20 @@ export function App() {
               <FileVideo className="h-4 w-4"/>
               Selecione um vídeo
             </label>
+
             <input type="file" id="video" accept="video/mp4" className="sr-only"/>
+
+            <Separator/>
+
+            <div className="space-y-1">
+              <Label htmlFor="transcription_prompt">Prompt de transcrição</Label>
+              <Textarea 
+                id="transcription_prompt" 
+                className="min-h-20 leading-relaxed" 
+                placeholder="Inclua palavras-chave mencionadas no vídeo, separados por vírgula"
+              />
+            </div>
+            
           </form>
         </aside>
       </main>
